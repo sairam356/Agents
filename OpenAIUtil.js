@@ -38,35 +38,5 @@ async function callOpenAI(prompt, message,toolData) {
 }
 
 
-function buildTools() {
-    return [
-        {
-            type: "function",
-            function: {
-                name: "saveFileToLocalDirectory",
-                description: "Get Response as Output and Save in File",
-                parameters: {
-                    type: "object",
-                    properties: {
-                        code: { type: "string" },
-                        fileName: { type: "string" },
-                    },
-                    required: ["code", "fileName"],
-                },
-            }
-        },
-        {
-            type: "function",
-            function: {
-                name: "getLanguageInfo",
-                description: "External call with response given language info",
-                parameters: {
-                    type: "object",
-                    properties: {},
-                },
-            }
-        }
-    ];
-}
 
 module.exports = callOpenAI;
